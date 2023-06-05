@@ -559,7 +559,7 @@
 		|	CROPA UMA IMAGEM
 		|-----------------------------------------------------
 		*/
-        static public function crop($_IMG=null,$sufix=true,$size=[50,50],$crop=true,$resize=true,$qualidade=null,$showBrowser=false){
+        static public function crop($_IMG=null,$size=[50,50],$sufix=true,$crop=true,$resize=true,$qualidade=null,$showBrowser=false){
                 $thumb = new thumb($_IMG); 							//link ou resource da imagem original
                 $thumb->sufix=$sufix; 								//caso queira setar um sufixo -> imagem-750x320
                 $thumb->crop=$crop;									//se a imagem deverá ser cropada ou não

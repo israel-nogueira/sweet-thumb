@@ -43,16 +43,24 @@ Crop simples de uma imagem
     /* 
     |--------------------------------
     |  Parâmetros:
-    |   @SOURCE
-    |   @SUFIX
-    |   @SIZE
-    |   @CROP
-    |   @RESIZE
-    |   @QUALIDADE
-    |   @SHOW_BROSWER
+    |   @SOURCE => Caminho da imagem
+    |   @SIZE = Array com Largura e Altura  (ex: [w,h] )
+    |   @SUFIX => Será adicionado as medidas da imagem ao final do nome (ex: avatar-{w}-{h}-{q}.png)
+    |   @CROP = Bolean, habilita o crope da imagem
+    |   @RESIZE = Habilita se quer redimencionar a imagem
+    |   @QUALIDADE = 1 - 100  
+    |   @SHOW_BROSWER = Ao invés de salvar a imagem, retorna a imagem para o browser
     |--------------------------------
     */
-	  sweet::crop($_IMG=null,$sufix=true,$size=[50,50],$crop=true,$resize=true,$qualidade=null,$showBrowser=false);
+    sweet::crop(
+        $_IMG=null,
+        $sufix=true,
+        $size=[50,50],
+        $crop=true,
+        $resize=true,
+        $qualidade=null,
+        $showBrowser=false
+    );
 
 
     /* 
@@ -61,7 +69,7 @@ Crop simples de uma imagem
     |--------------------------------
     */
     $_IMAGEM = __DIR__.'/avatar.jpg';
-    sweet::crop($_IMAGEM,true,[100,100],true,true,100);
+    sweet::crop($_IMAGEM,[100,100],true,true,true,100);
 
 
 ?>
