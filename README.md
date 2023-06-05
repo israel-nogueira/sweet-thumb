@@ -95,5 +95,5 @@ Redimencionará a largura para 100px e a altura proporcional:
 ```sweet::crop('avatar.png',[100,0,100]);```<br>
 Cropa a imagem no formato que você definir porém sem redimencionar a imagm:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/da2ee606148887976631b439bfc96581a67618e9/src/04.png.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/8af8abdf61d90d31ed4f82bcf2f96c9143cee472/src/04.png"/>
 </p>
