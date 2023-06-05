@@ -58,7 +58,6 @@ Crop simples de uma imagem
         $size=[50,50],
         $crop=true,
         $resize=true,
-        $qualidade=null,
         $showBrowser=false
     );
 
@@ -74,25 +73,26 @@ Crop simples de uma imagem
 
 ?>
 ```
-```sweet::crop('avatar.png',[100,100,100]);```<br> 
+
+```sweet::crop('avatar.png',[100,100,100],true,true);```<br> 
 Cropa a imagem no formato que você definir:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/97c5a70ea82f0d22d27198dfaa4ce0b70c548c6d/src/01.png"/>
 </p>
 
-```sweet::crop('avatar.png',[0,100,100]);```<br> 
+```sweet::crop('avatar.png',[0,100,100],false,true);```<br> 
 Redimencionará a altura para 100px e a largura proporcional:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/97c5a70ea82f0d22d27198dfaa4ce0b70c548c6d/src/02.png"/>
 </p>
 
-```sweet::crop('avatar.png',[100,0,100]);```<br>
+```sweet::crop('avatar.png',[100,0,100],false,true);```<br>
 Redimencionará a largura para 100px e a altura proporcional:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/97c5a70ea82f0d22d27198dfaa4ce0b70c548c6d/src/03.png"/>
 </p>
 
-```sweet::crop('avatar.png',[100,0,100]);```<br>
+```sweet::crop('avatar.png',[100,100,100],true,false);```<br>
 Cropa a imagem no formato que você definir porém sem redimencionar a imagm:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/8af8abdf61d90d31ed4f82bcf2f96c9143cee472/src/04.png"/>
