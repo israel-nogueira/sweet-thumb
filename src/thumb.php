@@ -151,7 +151,7 @@
 			
 			
 			// CROPA + REDIMENCIONA
-			if( $this->crop && $this->resize==true ) {
+			if( $this->crop && $this->resize ) {
 				//Eixos iniciais
 				$thumbX = 0;
 				$thumbY = 0;
@@ -181,7 +181,7 @@
 				imagecopyresampled ( $this->resource, $this->stream, 0, 0, $thumbX, $thumbY,    $this->thumbWidth, $this->thumbHeight, $thumbLargura, $thumbAltura);
 				
 				// APENAS CROPA E CENTRALIZA
-			}elseif($this->crop && $this->resize==false) { 
+			}elseif($this->crop && !$this->resize) { 
 				$centerXthumb		= $this->thumbWidth/2;
 				$centerYthumb		= $this->thumbHeight/2;
 				$centerXOriginal	= $largura_original/2;
