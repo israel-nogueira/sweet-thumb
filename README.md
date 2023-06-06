@@ -423,3 +423,33 @@ Que visualmente é ficaria assim:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/9eac847243714507fe2be59176ef53a621d2e5a5/src/09.png"/>
 </p>
+
+
+## PROCESSA UMA IMAGEM <br/>
+
+Podemos utilizar essa função para gerar vários formatos de uma só imagem;
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+
+	/*
+	|-----------------------------------------------------
+	|	FAZ O PROCESSO COMPLETO
+	|-----------------------------------------------------
+	|
+	|	@_ARQUIVO:  string:PathFile | array[PathFile,HashName]
+	|	@_SIZES:    [w|h,[w,h],[w,h],[w,h,q]]  
+	|	@_ROOT_SIZE: tamanho maximo do original
+	|
+	|-----------------------------------------------------
+	*/
+		sweet::processaImagem(__DIR__.'/avatar.png',[[750,600,100],[500,300],100,50],1000);
+
+?>
+```
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/9eac847243714507fe2be59176ef53a621d2e5a5/src/09.png"/>
+</p>

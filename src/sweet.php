@@ -599,20 +599,22 @@
 		|-----------------------------------------------------
 		*/
 			static public function crop($_IMG=null,$size=[50,50,100],$sufix=true,$crop=true,$resize=true,$showBrowser=false){
-				
-					$thumb = new thumb($_IMG); 								//link ou resource da imagem original
-					$thumb->sufix=$sufix; 									//caso queira setar um sufixo -> imagem-750x320
-					$thumb->crop=($size[0]==0 || $size[1]==0)?false:$crop;	//se a imagem deverá ser cropada ou não
-					$thumb->resize=$resize; 								//redimenciona a imagem conforme cropa
-					$thumb->setDimensions($size); 							//largura e altura da thumb, aceita arrays multidimensionais
-					$thumb->setFolder(dirname($_IMG)); 						//caso queira que a thumb seja salva numa pasta			
-					$qualidade = (count($size)==3) ? $size[2] : null;		
-					$thumb->setJpegQuality(($qualidade??100));				//qualidade JPG (0-100)
-					$thumb->setPngQuality(($qualidade??9)); 				//qualidade do PNG (0-9)
-					$thumb->setGifQuality(($qualidade??100));				//qualidade do GIF (0-100)
-					$thumb->forceDownload(false);							//true para setar a thumb para download
-					$thumb->showBrowser($showBrowser);						//true para setar a thumb para mostrar no navegador
-					$thumb->process();
+					print_r($size);
+					// $thumb = new thumb($_IMG); 								//link ou resource da imagem original
+					// $thumb->sufix=$sufix; 									//caso queira setar um sufixo -> imagem-750x320
+
+					// $thumb->crop=[100,100];//($size[0]==0 || $size[1]==0)?false:$crop;	//se a imagem deverá ser cropada ou não
+
+					// $thumb->resize=$resize; 								//redimenciona a imagem conforme cropa
+					// $thumb->setDimensions($size); 							//largura e altura da thumb, aceita arrays multidimensionais
+					// $thumb->setFolder(dirname($_IMG)); 						//caso queira que a thumb seja salva numa pasta			
+					// $qualidade = (count($size)==3) ? $size[2] : null;		
+					// $thumb->setJpegQuality(($qualidade??100));				//qualidade JPG (0-100)
+					// $thumb->setPngQuality(($qualidade??9)); 				//qualidade do PNG (0-9)
+					// $thumb->setGifQuality(($qualidade??100));				//qualidade do GIF (0-100)
+					// $thumb->forceDownload(false);							//true para setar a thumb para download
+					// $thumb->showBrowser($showBrowser);						//true para setar a thumb para mostrar no navegador
+					// $thumb->process();
 					return true;
 			}
 
