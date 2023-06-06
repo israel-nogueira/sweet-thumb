@@ -359,3 +359,37 @@ Que visualmente é ficaria assim:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/07.png"/>
 </p>
+
+## PLACEHOLDER BLUR DE UMA IMAGEM <br/>
+
+Aqui criamos uma imagem em BLUR para placeholder em SVG;<br>
+Será criado um arquivo SVG com o sufixo ```-lazy.svg ```
+Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo ```-lazy.low.svg``` 
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+    /* 
+    |-------------------------------------------------------
+    |  ADICIONA TEXTO
+    |--------------------------------------------------------
+    */
+    sweet::addTexto([
+						'ORIGINAL'	=>	__DIR__.'/bg.png',
+						'FINAL'		=>	__DIR__.'/bg_texto.png',
+						'FONT_SIZE'	=>	30,
+						'TEXT_Y'	=>	'center';
+						'TEXT_X'	=>	'center';
+						'TEXTO'     =>	'PROMOÇÃO AGORA!';
+						'FONTE'     =>	__DIR__.'/FONTE.ttf',
+						'COR'       =>	'#FFFFFF'
+					]);
+
+?>
+```
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/08.png"/>
+</p>

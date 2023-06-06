@@ -543,8 +543,8 @@
 		|-----------------------------------------------------
 		*/
 			static public function addTexto($DATA){
-				$DATA['FINAL']			=	$DATA['FINAL']		??	null;
 				$DATA['ORIGINAL']		=	$DATA['ORIGINAL']	??	null;
+				$DATA['FINAL']			=	$DATA['FINAL']		??	null;
 				$DATA['FONT_SIZE']		=	$DATA['FONT_SIZE']	??	30;
 				$DATA['TEXT_Y'] 		=	$DATA['TEXT_Y']		?? 'center';
 				$DATA['TEXT_X'] 		=	$DATA['TEXT_X']		?? 'center';
