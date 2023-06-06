@@ -446,6 +446,34 @@ Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 	|-----------------------------------------------------
 	*/
 
+	sweet::processaImagem([__DIR__.'/imagens/avatar.png','nova-imagem'],[50,[100,150,100],[200,250,100],300],1300);
+
+?>
+```
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/d45bf1c328d2107368c9e2838858c7845a1fe5f8/src/11.png"/>
+</p>
+
+Caso não queira dar um bnome pra imagem, será gerado uma HASH randômica;
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+
+	/*
+	|-----------------------------------------------------
+	|	FAZ O PROCESSO COMPLETO
+	|-----------------------------------------------------
+	|
+	|	@_ARQUIVO:  string:PathFile | array[PathFile,HashName]
+	|	@_SIZES:    [w|h,[w,h],[w,h],[w,h,q]]  
+	|	@_ROOT_SIZE: tamanho maximo do original
+	|
+	|-----------------------------------------------------
+	*/
+
 	sweet::processaImagem(__DIR__.'/avatar.png',[50,[200,100,100],[200,100,100],300],1300);
 
 ?>
