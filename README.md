@@ -178,6 +178,7 @@ Este exemplo resultará em:
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/f26033179b54e7cedf63495a4667b0c24bef2388/src/05.png"/>
 </p>
 
+
 ## LISTANDO PALETA DE CORES<br/>
 Nos retorna as cores disponiveis em uma imagem;
 >ATENÇÃO!
@@ -305,3 +306,8 @@ Que nos resultará em:
         </text> 
     </svg>
 ```
+
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/>
+</p>
