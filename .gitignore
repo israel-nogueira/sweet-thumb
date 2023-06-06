@@ -2,3 +2,5 @@ composer.lock
 src/exemplos.psd
 src/template.psd
 src/topo_README.psd
+src/*.png
+src/*.jpg
