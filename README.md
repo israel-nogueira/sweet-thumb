@@ -336,8 +336,9 @@ Que visualmente é ficaria assim:
 
 ## PLACEHOLDER BLUR DE UMA IMAGEM <br/>
 
-Aqui criamos uma imagem em BLUR para placeholder em SVG
-
+Aqui criamos uma imagem em BLUR para placeholder em SVG;<br>
+Será criado um arquivo SVG com o sufixo ```-lazy.svg ```
+Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo ```-lazy.low.svg``` 
 ```php
 
 <?php
@@ -353,3 +354,8 @@ Aqui criamos uma imagem em BLUR para placeholder em SVG
 
 
 ?>
+```
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/07.png"/>
+</p>
