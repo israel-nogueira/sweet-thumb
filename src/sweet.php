@@ -630,9 +630,7 @@
 					$thumb->resize=$resize; 
 					$thumb->setDimensions([$size[0],($size[1]??$size[0])]);		//largura e altura da thumb, aceita arrays multidimensionais
 					$thumb->setFolder(dirname($_IMG)); 							//caso queira que a thumb seja salva numa pasta
-
 					$qualidade = (count($size)==3) ? $size[2] : null;	
-					
 					$thumb->setJpegQuality(	((is_null($qualidade)||$qualidade==100)?100	:$qualidade));					 //qualidade JPG (0-100)
 					$thumb->setPngQuality(	((is_null($qualidade)||$qualidade==100) ? 9	:intVal((($qualidade*9)/100)))); //qualidade do PNG (0-9)
 					$thumb->setGifQuality(	((is_null($qualidade)||$qualidade==100)?100	:$qualidade));					 //qualidade do GIF (0-100)

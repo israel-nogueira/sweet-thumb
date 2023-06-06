@@ -41,7 +41,7 @@ Crop simples de uma imagem
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
     /* 
     |--------------------------------
@@ -110,7 +110,7 @@ Comporta as exetensões: ```.jpg```, ```.gif```, ```.webp```, ```.png```.
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
 
     /* 
@@ -148,7 +148,7 @@ Simplesmente retorna uma imagem e printa no browser:
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
     sweet::printBrowser(__DIR__.'/original.webp');
 
@@ -162,7 +162,7 @@ Cropa e retorna uma thumb redonda
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
     /* 
     |-------------------------------------------------------
@@ -194,7 +194,7 @@ Nos retorna as cores disponiveis em uma imagem;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -246,7 +246,7 @@ Nos retorna a cor principal de uma imagem;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -280,7 +280,7 @@ Nos retorna a cor principal de uma imagem;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -346,7 +346,7 @@ Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo `
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -371,7 +371,7 @@ Veja como é simples adicionar um texto sob uma imagem;<br>
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -404,7 +404,7 @@ Com essa função poderemos mesclar imagens programaticamente;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
     
     /* 
     |-------------------------------------------------------
@@ -435,7 +435,7 @@ Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
 	/*
 	|-----------------------------------------------------
@@ -463,7 +463,7 @@ Caso não queira dar um bnome pra imagem, será gerado uma HASH randômica;
 
 <?php
     include "vendor\autoload.php";
-    use  IsraelNogueira\sweetThumb;
+	use IsraelNogueira\SweetThumb\sweet;
 
 	/*
 	|-----------------------------------------------------

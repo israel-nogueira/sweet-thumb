@@ -22,7 +22,7 @@
 			image::setJpegQuality( 100 );
 			image::setPngQuality( 9 );
 			image::setGifQuality( 100 );
-			thumbbrowser::showBrowser( true );
+			thumbbrowser::showBrowser( false );
 			thumbbrowser::forceDownload( false );   
 		}
 		
