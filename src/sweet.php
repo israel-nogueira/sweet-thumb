@@ -344,7 +344,36 @@
 				$sortedArray = array_merge($sortedArray, $otherColors);
 				return $sortedArray;
 			}
+			
+		/*
+		|-----------------------------------------------------
+		|	  RETORNA AS CORES PREDOMINANTES DE UMA IMAGEM
+		|-----------------------------------------------------
+		*/
+			static public function corPredominante($image, $array = false, $format = 'rgb(%d, %d, %d)'){
+				if(mime_content_type($image)=='image/png'){
+					$i = imagecreatefrompng($image);
+				}elseif(mime_content_type($image)=='image/jpg' || mime_content_type($image)=='image/jpeg'){
+					$i = imagecreatefromjpeg($image);
+				}
+				$r_total=$g_total=$b_total=$total= 0;
+				for ($x=0;$x<imagesx($i);$x++) {
+					for ($y=0;$y<imagesy($i);$y++) {
+						$rgb = imagecolorat($i,$x,$y);
+						$r = ($rgb >> 16) & 0xFF; $g = ($rgb >> 8) & 0xFF; $b = $rgb & 0xFF;
+						$r_total += $r;
+						$g_total += $g;
+						$b_total += $b;
+						$total++;
+					}
+				}
+				$r = round($r_total / $total);
+				$g = round($g_total / $total);
+				$b = round($b_total / $total);
+				$rgb = ($array) ? array('r'=> $r, 'g'=> $g, 'b'=> $b) : sprintf($format, $r, $g, $b);
+				return [[$r,$g,$b],$rgb];
 
+			}
 		/*
 		|-----------------------------------------------------
 		|	  GERA UM PLACEHOLDER DE IMAGEM
@@ -389,35 +418,7 @@
 			} 
 
 
-		/*
-		|-----------------------------------------------------
-		|	  RETORNA AS CORES PREDOMINANTES DE UMA IMAGEM
-		|-----------------------------------------------------
-		*/
-			static public function corPredominante($image, $array = false, $format = 'rgb(%d, %d, %d)'){
-				if(mime_content_type($image)=='image/png'){
-					$i = imagecreatefrompng($image);
-				}elseif(mime_content_type($image)=='image/jpg' || mime_content_type($image)=='image/jpeg'){
-					$i = imagecreatefromjpeg($image);
-				}
-				$r_total=$g_total=$b_total=$total= 0;
-				for ($x=0;$x<imagesx($i);$x++) {
-					for ($y=0;$y<imagesy($i);$y++) {
-						$rgb = imagecolorat($i,$x,$y);
-						$r = ($rgb >> 16) & 0xFF; $g = ($rgb >> 8) & 0xFF; $b = $rgb & 0xFF;
-						$r_total += $r;
-						$g_total += $g;
-						$b_total += $b;
-						$total++;
-					}
-				}
-				$r = round($r_total / $total);
-				$g = round($g_total / $total);
-				$b = round($b_total / $total);
-				$rgb = ($array) ? array('r'=> $r, 'g'=> $g, 'b'=> $b) : sprintf($format, $r, $g, $b);
-				return [[$r,$g,$b],$rgb];
 
-			}
 
 
 		/*

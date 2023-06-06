@@ -208,7 +208,7 @@ Nos retorna as cores disponiveis em uma imagem;
 
 ?>
 ```
-Este exemplo resultará em:
+Este exemplo resultará em algo parecido com isso:
 ```plaintext
     Array
     (
@@ -240,5 +240,40 @@ Este exemplo resultará em:
             )
     )
 
+
+```
+
+## COR PREDOMINANTE DE UMA IMAGEM<br/>
+
+Nos retorna a cor principal de uma imagem;
+
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+    /* 
+    |-------------------------------------------------------
+    |  CAPTURA PALETA DE CORES
+    |--------------------------------------------------------
+    */
+    $paleta = sweet::corPredominante(__DIR__.'/avatar.jpg');
+
+?>
+```
+Este exemplo resultará em algo parecido com isso:
+```plaintext
+        Array
+        (
+            [0] => Array
+                (
+                    [0] => 80
+                    [1] => 61
+                    [2] => 58
+                )
+
+            [1] => rgb(80, 61, 58)
+        )
 
 ```
