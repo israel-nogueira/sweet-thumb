@@ -487,6 +487,18 @@
 		|	de um svg e colocamos um BLUR para utilizar como placeholder
 		|
 		*/
+
+			static public function calcularStdDeviation($largura, $altura) {
+				$minStdDeviation = 10;
+				$maxStdDeviation = 100;
+				$area = $largura * $altura;
+				$maxArea = 1350 * 1350;
+				$proporcao = $area / $maxArea;
+				$valorProporcional = $minStdDeviation + ($proporcao * ($maxStdDeviation - $minStdDeviation));
+				$stdDeviation = round($valorProporcional);
+				return $stdDeviation;
+			}
+
 			static public function createLazyLoad($image){
 				$_FILENAME_SEM_EXT	= substr(basename($image),0,-4);
 				$_EXTENSION			= substr(basename($image),-3);
@@ -518,8 +530,21 @@
 				$i_PCT = $fator / 100;
 				$i_X = 0;
 				$i_Y = 0;
+
+
+				$stdDeviation = self::calcularStdDeviation($BASE_W,$BASE_H);
+
 				$filter = 'filter="url(#f1)"';
-				$out = '<svg xmlns="http://www.w3.org/2000/svg" ' . $filter . ' viewBox="0 0 '.$BASE_W.' '.$BASE_H.'" width="'.$BASE_W.'px" height="'.$BASE_H.'px"  style="background-color: ' . $_RGB[1] . ';" ><defs><filter id="f1"  x="0" y="0"><feGaussianBlur in="SourceGraphic"   stdDeviation="70" /></filter></defs>';
+				$out = '<svg
+							xmlns="http://www.w3.org/2000/svg" ' . $filter . ' 
+							viewBox="0 0 '.$BASE_W.' '.$BASE_H.'" 
+							width="'.$BASE_W.'px" 
+							height="'.$BASE_H.'px"  
+							style="background-color: ' . $_RGB[1] . ';" 
+						><defs>
+						<filter id="f1"  x="0" y="0">
+							<feGaussianBlur in="SourceGraphic"   stdDeviation="'.$stdDeviation.'" /></filter>
+						</defs>';
 				foreach ($colors as $_LINHA) {
 					$X_PCT = (100 / count($_LINHA));
 					$Y_PCT = (100 / count($colors));
@@ -598,23 +623,22 @@
 		|	CROPA UMA IMAGEM
 		|-----------------------------------------------------
 		*/
-			static public function crop($_IMG=null,$size=[50,50,100],$sufix=true,$crop=true,$resize=true,$showBrowser=false){
-					print_r($size);
-					// $thumb = new thumb($_IMG); 								//link ou resource da imagem original
-					// $thumb->sufix=$sufix; 									//caso queira setar um sufixo -> imagem-750x320
+			static public function crop($_IMG=null,$size=[50,50,100],$sufix=true,$crop=true,$resize=true,$showBrowser=false,$forceDownload=false){
+					$thumb = new thumb($_IMG); 									//link ou resource da imagem original
+					$thumb->sufix=$sufix; 										//caso queira setar um sufixo -> imagem-750x320
+					$thumb->crop= (@$size[0]==0 || @$size[1]==0)?false:$crop;	//se a imagem deverá ser cropada ou não
+					$thumb->resize=$resize; 
+					$thumb->setDimensions([$size[0],($size[1]??$size[0])]);		//largura e altura da thumb, aceita arrays multidimensionais
+					$thumb->setFolder(dirname($_IMG)); 							//caso queira que a thumb seja salva numa pasta
 
-					// $thumb->crop=[100,100];//($size[0]==0 || $size[1]==0)?false:$crop;	//se a imagem deverá ser cropada ou não
-
-					// $thumb->resize=$resize; 								//redimenciona a imagem conforme cropa
-					// $thumb->setDimensions($size); 							//largura e altura da thumb, aceita arrays multidimensionais
-					// $thumb->setFolder(dirname($_IMG)); 						//caso queira que a thumb seja salva numa pasta			
-					// $qualidade = (count($size)==3) ? $size[2] : null;		
-					// $thumb->setJpegQuality(($qualidade??100));				//qualidade JPG (0-100)
-					// $thumb->setPngQuality(($qualidade??9)); 				//qualidade do PNG (0-9)
-					// $thumb->setGifQuality(($qualidade??100));				//qualidade do GIF (0-100)
-					// $thumb->forceDownload(false);							//true para setar a thumb para download
-					// $thumb->showBrowser($showBrowser);						//true para setar a thumb para mostrar no navegador
-					// $thumb->process();
+					$qualidade = (count($size)==3) ? $size[2] : null;	
+					
+					$thumb->setJpegQuality(	((is_null($qualidade)||$qualidade==100)?100	:$qualidade));					 //qualidade JPG (0-100)
+					$thumb->setPngQuality(	((is_null($qualidade)||$qualidade==100) ? 9	:intVal((($qualidade*9)/100)))); //qualidade do PNG (0-9)
+					$thumb->setGifQuality(	((is_null($qualidade)||$qualidade==100)?100	:$qualidade));					 //qualidade do GIF (0-100)
+					$thumb->forceDownload($forceDownload);						//true para setar a thumb para download
+					$thumb->showBrowser($showBrowser);							//true para setar a thumb para mostrar no navegador
+					$thumb->process();
 					return true;
 			}
 
@@ -671,6 +695,7 @@
 							$_EXTENSION = 'png';
 						}
 						$_FILENAME			=	$_HASH.'.'.$_EXTENSION;
+						
 					//------------------------------------------------------------------
 					//	COPIAMOS E RENOMEAMOS
 					//------------------------------------------------------------------
@@ -684,8 +709,7 @@
 					//	REDIMENCIONA O ORIGINAL PARA O TAMANHO MÁXIMO
 					//------------------------------------------------------------------
 						@mkdir($NEW_PATH,775,true);
-						sweet::crop($_FULLPATH,false,[$_ROOT_SIZE,0],true,false);
-
+						sweet::crop($_FULLPATH,[$_ROOT_SIZE,0],false,true,false);
 					//------------------------------------------------------------------
 					//	CRIAMOS O SVG DE PREVIEW
 					//------------------------------------------------------------------
@@ -699,11 +723,21 @@
 					//	DERIVAMOS OS TAMAHOS DA IMAGEM
 					//------------------------------------------------------------------
 						foreach ($_SIZES as $value) {
-							$_QUAL 				= (is_array($value)) ? ( (isset($value[2]))?$value[2] : self::getQuality($_FULLPATH)) : self::getQuality($_FULLPATH);
+							if(is_array($value) && count($value)>2 && is_numeric($value[2])){
+								$_QUAL = $value[2];
+							}else{
+								$_QUAL = self::getQuality($_FULLPATH);
+							}
+
+							if(is_numeric($value)){$SIZES = [intVal($value),intVal($value),$_QUAL];}
+							if(is_array($value) && count($value)==1){$SIZES = [intVal($value[0]),intVal($value[0]),$_QUAL];}
+							if(is_array($value) && count($value)>=2){$SIZES = [intVal($value[0]),intVal($value[1]),$_QUAL];}
+
 							$_NAMESIZE			= (is_array($value)) ? implode('x',$value):$value.'x0x'.$_QUAL;
-							$SIZES				= (is_array($value)) ? [$value[0],$value[1]] : [$value,0];
+
+
 							$_RETURN['SIZES'][] = $_HASH.'-'.$_NAMESIZE.'.'.$_EXTENSION;
-							sweet::crop($NEW_PATH.'/'.$_FILENAME,true,$SIZES,true,true,$_QUAL);
+							sweet::crop($NEW_PATH.'/'.$_FILENAME,$SIZES,true,true,true);
 						}
 					return $_RETURN;
 				}else{

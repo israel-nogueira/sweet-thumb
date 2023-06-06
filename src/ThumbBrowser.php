@@ -30,10 +30,11 @@
 		
 		private function output( $path ) {
 			switch( image::getMimeType() ) {
-				case "image/jpeg": imagejpeg( $this->resource, $path, image::getJpegQuality()); break;
-				case "image/png": imagepng( $this->resource, $path, image::getPngQuality()); break;
-				case "image/gif": imagegif( $this->resource, $path, image::getGifQuality()); break;
-				default: imagejpeg( $this->resource, $path, image::getJpegQuality()); break;
+				case "image/jpg":
+				case "image/jpeg":	imagejpeg(	$this->resource, $path, image::getJpegQuality());	break;
+				case "image/png":	imagepng(	$this->resource, $path, image::getPngQuality());	break;
+				case "image/gif":	imagegif(	$this->resource, $path, image::getGifQuality());	break;
+				default:			imagejpeg(	$this->resource, $path, image::getJpegQuality());	break;
 			}
 		}
 		

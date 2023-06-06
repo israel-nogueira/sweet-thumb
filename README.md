@@ -445,7 +445,8 @@ Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 	|
 	|-----------------------------------------------------
 	*/
-		sweet::processaImagem(__DIR__.'/avatar.png',[[750,600,100],[500,300],100,50],1000);
+
+	sweet::processaImagem(__DIR__.'/avatar.png',[50,[200,100,100],[200,100,100],300],1300);
 
 ?>
 ```
