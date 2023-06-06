@@ -100,7 +100,9 @@ Cropa a imagem no formato que você definir porém sem redimencionar a imagm:
 
 ## CONVERSÃO DE ARQUIVOS<br/>
 
-Crop simples de uma imagem
+Conversão de tipos de imagem.<br>
+Comporta as exetensões: ```.jpg```, ```.gif```, ```.webp```, ```.png```.
+
 ```php
 
 <?php
@@ -255,7 +257,7 @@ Nos retorna a cor principal de uma imagem;
     
     /* 
     |-------------------------------------------------------
-    |  CAPTURA PALETA DE CORES
+    |  COR PRINCIPAL
     |--------------------------------------------------------
     */
     $paleta = sweet::corPredominante(__DIR__.'/avatar.jpg');
