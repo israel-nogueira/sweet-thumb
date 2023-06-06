@@ -405,16 +405,21 @@ Com essa função poderemos mesclar imagens programaticamente;
     
     /* 
     |-------------------------------------------------------
-    |  ADICIONA TEXTO
+    |  MESCLA O AVATAR 
     |--------------------------------------------------------
     */
-	
 	sweet::mesclarIMG(__DIR__.'/bg.png',__DIR__.'/mulher.png',22,22,__DIR__.'/bg1.png');
+
+    /* 
+    |-------------------------------------------------------
+    |  MESCLA O ICONE DO SONIC 
+    |--------------------------------------------------------
+    */
 	sweet::mesclarIMG(__DIR__.'/bg1.png',__DIR__.'/sonic.png',230,100,__DIR__.'/banner.png');
 
 ?>
 ```
 Que visualmente é ficaria assim:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/65d8511a15a8a189ccbdf6a8909bd77e254efdcc/src/08.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/9eac847243714507fe2be59176ef53a621d2e5a5/src/09.png"/>
 </p>
