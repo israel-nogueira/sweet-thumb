@@ -217,26 +217,15 @@ Este exemplo resultará em algo parecido com isso:
         [0] => Array
             (
                 [0] => 000000
-                [1] => 000000
-                [2] => 000000
                 ...
                 [30] => 0c0404
                 [31] => 0b0303
                 [32] => 050000
-                [33] => 030201
-                [34] => 010100
-                [35] => 020201
                 [36] => 090100
                 [37] => 0f0500
                 ...
                 ...
-                ...
                 [6361] => 1f1106
-                [6362] => 301d0c
-                [6363] => 382009
-                [6364] => 3b1e03
-                [6365] => 452406
-                [6366] => 4e2a0a
                 [6367] => 582f0e
                 [6368] => 623512
             )
@@ -278,4 +267,50 @@ Este exemplo resultará em algo parecido com isso:
             [1] => rgb(80, 61, 58)
         )
 
+```
+## PLACEHOLDER<br/>
+
+Nos retorna a cor principal de uma imagem;
+
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+    /* 
+    |-------------------------------------------------------
+    |  COR PRINCIPAL
+    |--------------------------------------------------------
+    */
+    $paleta = sweet::placeholderSVG([
+                'SIZE'  =>'100x100',
+			    'TEXT'  =>'Olá mundo!',
+				'BG'    =>'000000',
+				'COLOR' =>'FFFFFF',
+				'ID'    =>'demonstracao',
+				'CLASS' =>'avatar',
+				'FONTSIZE'=>25,
+				'FONTFAMILY'=>__DIR__.'/fonte.ttf'
+            ]);
+
+?>
+```
+Que nos resultará em:
+```html
+        <svg xmlns="http://www.w3.org/2000/svg" id="demonstracao" class="avatar" width="100" height="100" viewBox="0 0 100 100">
+            <rect fill="#000000" width="100%" height="100%"/>
+            <text 
+                fill="#FFFFFF" 
+                font-family="sans-serif" 
+                font-size="25" 
+                font-weight="bold" 
+                x="50%" 
+                y="50%" 
+                text-anchor="middle"
+                dominant-baseline="middle"
+            >
+            Olá mundo!
+            </text> 
+        </svg>
 ```
