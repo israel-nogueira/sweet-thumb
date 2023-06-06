@@ -23,7 +23,8 @@
     <a href="https://packagist.org/packages/israel-nogueira/sweet-thumb"><img src="https://poser.pugx.org/israel-nogueira/sweet-thumb/license.svg"></a>
 </p>
 
-Classe para controlar a sua base de dados no PHP com facilidade e segurança.<br/>
+Esta é uma super classe super simples para criação e gerenciamento de thumbnails<br/>
+e mais alguns truques úteis para o desenvolvimento<br/>
 
 
 ## Instalação
