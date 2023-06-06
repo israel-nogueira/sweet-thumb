@@ -124,7 +124,7 @@ Comporta as exetensões: ```.jpg```, ```.gif```, ```.webp```, ```.png```.
     |  CONVERTE PARA GIF
     |--------------------------------
     */
-	sweet::img2gif(__DIR__.'/avatar.png',9);
+	sweet::img2gif(__DIR__.'/avatar.png',100);
     /* 
     |--------------------------------
     |  CONVERTE PARA WEBP
