@@ -314,6 +314,7 @@ Nos retorna a cor principal de uma imagem;
     echo ' <img src="'.$placeholder.'">';
 
 ?>
+
 ```
 Que nos resultará em:
 ```html
@@ -332,3 +333,23 @@ Que visualmente é ficaria assim:
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/><br>
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/>
 </p>
+
+## PLACEHOLDER BLUR DE UMA IMAGEM <br/>
+
+Aqui criamos uma imagem em BLUR para placeholder em SVG
+
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+    /* 
+    |-------------------------------------------------------
+    |  CRIA BLUR IMAGE
+    |--------------------------------------------------------
+    */
+   echo sweet::createLazyLoad(__DIR__.'/avatar.png')
+
+
+?>
