@@ -159,5 +159,5 @@ Cropa e retorna uma thumb redonda
 ```
 Este exemplo resultará em:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/8af8abdf61d90d31ed4f82bcf2f96c9143cee472/src/04.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/f26033179b54e7cedf63495a4667b0c24bef2388/src/05.png"/>
 </p>
