@@ -175,10 +175,8 @@ Este exemplo resultará em:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/f26033179b54e7cedf63495a4667b0c24bef2388/src/05.png"/>
 </p>
-```
 
 ## LISTANDO PALETA DE CORES<br/>
-
 Nos retorna as cores disponiveis em uma imagem;
 >ATENÇÃO!
 >Essa função percorre cada pixel de uma imagem.
@@ -192,13 +190,55 @@ Nos retorna as cores disponiveis em uma imagem;
     include "vendor\autoload.php";
     use  IsraelNogueira\sweetThumb;
     
-	sweet::getColor(__DIR__.'/avatar.jpg');
+    /* 
+    |-------------------------------------------------------
+    |  CAPTURA PALETA DE CORES
+    |--------------------------------------------------------
+    */
+    $paleta = sweet::getColor(__DIR__.'/avatar.jpg');
+
+    /* 
+    |-------------------------------------------------------
+    |  ORDENA A PALETA DE CORES
+    |--------------------------------------------------------
+    */
+    $Ordem  = sweet::sortByColor($paleta);
+
+
 
 ?>
 ```
 Este exemplo resultará em:
-```JSON
-
+```plaintext
+    Array
+    (
+        [0] => Array
+            (
+                [0] => 000000
+                [1] => 000000
+                [2] => 000000
+                ...
+                [30] => 0c0404
+                [31] => 0b0303
+                [32] => 050000
+                [33] => 030201
+                [34] => 010100
+                [35] => 020201
+                [36] => 090100
+                [37] => 0f0500
+                ...
+                ...
+                ...
+                [6361] => 1f1106
+                [6362] => 301d0c
+                [6363] => 382009
+                [6364] => 3b1e03
+                [6365] => 452406
+                [6366] => 4e2a0a
+                [6367] => 582f0e
+                [6368] => 623512
+            )
+    )
 
 
 ```
