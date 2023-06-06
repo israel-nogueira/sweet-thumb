@@ -452,7 +452,7 @@ Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 ```
 Que visualmente é ficaria assim:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/d45bf1c328d2107368c9e2838858c7845a1fe5f8/src/11.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/290adc84d05d5c0e068730ea6e8dbeff9537cb30/src/11.png"/>
 </p>
 
 Caso não queira dar um bnome pra imagem, será gerado uma HASH randômica;
