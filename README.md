@@ -360,11 +360,10 @@ Que visualmente é ficaria assim:
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/07.png"/>
 </p>
 
-## PLACEHOLDER BLUR DE UMA IMAGEM <br/>
+## ADD TEXTO POR CIMA DE UMA IMAGEM <br/>
 
-Aqui criamos uma imagem em BLUR para placeholder em SVG;<br>
-Será criado um arquivo SVG com o sufixo ```-lazy.svg ```
-Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo ```-lazy.low.svg``` 
+Veja como é simples adicionar um texto sob uma imagem;<br>
+
 ```php
 
 <?php
@@ -382,10 +381,36 @@ Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo `
 						'FONT_SIZE'	=>	30,
 						'TEXT_Y'	=>	'center';
 						'TEXT_X'	=>	'center';
-						'TEXTO'     =>	'PROMOÇÃO AGORA!';
-						'FONTE'     =>	__DIR__.'/FONTE.ttf',
-						'COR'       =>	'#FFFFFF'
+						'TEXTO'		=>	'PROMOÇÃO AGORA!';
+						'FONTE'		=>	__DIR__.'/FONTE.ttf',
+						'COR'		=>	'#FFFFFF'
 					]);
+
+?>
+```
+Que visualmente é ficaria assim:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/65d8511a15a8a189ccbdf6a8909bd77e254efdcc/src/08.png"/>
+</p>
+
+
+## MESCLANDO IMAGENS <br/>
+
+Com essa função poderemos mesclar imagens programaticamente;
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+    /* 
+    |-------------------------------------------------------
+    |  ADICIONA TEXTO
+    |--------------------------------------------------------
+    */
+	
+	sweet::mesclarIMG(__DIR__.'/bg.png',__DIR__.'/mulher.png',22,22,__DIR__.'/bg1.png');
+	sweet::mesclarIMG(__DIR__.'/bg1.png',__DIR__.'/sonic.png',230,100,__DIR__.'/banner.png');
 
 ?>
 ```
