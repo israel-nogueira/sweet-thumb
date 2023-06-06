@@ -391,5 +391,5 @@ Tambem um placeholder mais simples, com apenas a cor predominante com o sufixo `
 ```
 Que visualmente é ficaria assim:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/08.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/65d8511a15a8a189ccbdf6a8909bd77e254efdcc/src/08.png"/>
 </p>
