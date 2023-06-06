@@ -136,6 +136,20 @@ Crop simples de uma imagem
 ?>
 ```
 
+## PRINT IMAGEM NO BROWSER<br/>
+
+Simplesmente retorna uma imagem e printa no browser:
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+
+    sweet::printBrowser(__DIR__.'/original.webp');
+
+?>
+```
+
 ## THUMB REDONDO<br/>
 
 Cropa e retorna uma thumb redonda
@@ -150,10 +164,10 @@ Cropa e retorna uma thumb redonda
     |  CONVERTE PARA GIF
     |  @PARAM 1: Path da imagem
     |  @PARAM 2: Tamanho da thumb
-    |  @PARAM 3: Salva um arquivo local ou retorna o objeto
+    |  @PARAM 3: true:Salva um arquivo local, false: retorna o objeto
     |--------------------------------------------------------
     */
-	sweet::thumbRedondo(__DIR__.'/avatar.jpg', 500,true);
+	sweet::thumbRedondo(__DIR__.'/avatar.jpg', 180,true);
 
 ?>
 ```

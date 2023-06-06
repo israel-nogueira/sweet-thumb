@@ -185,32 +185,40 @@
 		|	MOSTRA NO BROWSER A IMAGEM  
 		|-----------------------------------------------------
 		*/
-			static public function printBrowser($imagem) {
-				if (is_string($imagem) && file_exists($imagem)) {
-					$extensao = pathinfo($imagem, PATHINFO_EXTENSION);
-					$tipoMime = '';
-					if ($extensao === 'jpg' || $extensao === 'jpeg') {
-						$tipoMime = 'image/jpeg';
-					} elseif ($extensao === 'png') {
-						$tipoMime = 'image/png';
-					} elseif ($extensao === 'gif') {
-						$tipoMime = 'image/gif';
-					} else {
-						echo 'Extensão de arquivo inválida.';
-						return;
-					}
-					ob_clean();
-					header("Content-Type: $tipoMime");
-					readfile($imagem);
-				} else {
 
-					ob_clean();
-					header('Content-Type: image/png');
-					imagepng($imagem);
-					imagedestroy($imagem);
+	static public function printBrowser($imagem) {
+		if (is_string($imagem) && file_exists($imagem)) {
+			$extensao = pathinfo($imagem, PATHINFO_EXTENSION);
+			$tipoMime = '';
 
-				}
+			if (in_array(strtolower($extensao), ['jpg', 'jpeg'])) {
+				$tipoMime = 'image/jpeg';
+			} elseif (strtolower($extensao) === 'png') {
+				$tipoMime = 'image/png';
+			} elseif (strtolower($extensao) === 'gif') {
+				$tipoMime = 'image/gif';
+			} elseif (strtolower($extensao) === 'webp') {
+				$tipoMime = 'image/webp';
+			} else {
+				echo 'Extensão de arquivo inválida.';
+				return;
 			}
+
+			ob_clean();
+			header("Content-Type: $tipoMime");
+			readfile($imagem);
+		} else {
+			if (is_resource($imagem) && get_resource_type($imagem) === 'gd') {
+				ob_clean();
+				header('Content-Type: image/png');
+				imagepng($imagem);
+				imagedestroy($imagem);
+			} else {
+				echo 'Imagem inválida.';
+			}
+		}
+	}
+
 
 
 		/*
