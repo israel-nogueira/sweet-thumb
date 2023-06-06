@@ -397,7 +397,7 @@
 				$fill					= $PARAM['BG'];
 				$color					= $PARAM['COLOR'];
 				$fontsize				= (int) $PARAM['FONTSIZE'];
-				$DY				        = (($_SIZE[1]/2) - ($fontsize-6));
+				$DY				        = (($_SIZE[1]/2) + ($fontsize-6));
 
 				return '<svg xmlns="http://www.w3.org/2000/svg" id="'.$PARAM['ID'].'" class="'.$PARAM['CLASS'].'" width="'.$_SIZE[0].'" height="'.$_SIZE[1] .'" viewBox="0 0 '.$_SIZE[0].' '.$_SIZE[1] .'">
 							<rect fill="#'.$fill.'" width="100%" height="100%"/>
@@ -405,7 +405,7 @@
 								fill="#'.$color.'" 
 								font-family="sans-serif" 
 								font-size="'.$fontsize.'" 
-								dy="'.$DY.'" 
+								dy="0" 
 								font-weight="bold" 
 								x="50%" 
 								y="50%" 

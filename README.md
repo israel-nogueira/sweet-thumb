@@ -283,34 +283,25 @@ Nos retorna a cor principal de uma imagem;
     |  COR PRINCIPAL
     |--------------------------------------------------------
     */
-    $paleta = sweet::placeholderSVG([
-                'SIZE'  =>'100x100',
-			    'TEXT'  =>'Olá mundo!',
-				'BG'    =>'000000',
-				'COLOR' =>'FFFFFF',
-				'ID'    =>'demonstracao',
-				'CLASS' =>'avatar',
-				'FONTSIZE'=>25,
-				'FONTFAMILY'=>__DIR__.'/fonte.ttf'
-            ]);
+    echo sweet::placeholderSVG([
+            'SIZE'  =>'250x100',
+            'TEXT'  =>'Olá mundo!',
+            'BG'    =>'000000',
+            'COLOR' =>'FFFFFF',
+            'ID'    =>'demonstracao',
+            'CLASS' =>'avatar',
+            'FONTSIZE'=>30,
+            'FONTFAMILY'=>__DIR__.'/fonte.ttf'
+        ]);
 
 ?>
 ```
 Que nos resultará em:
 ```html
-        <svg xmlns="http://www.w3.org/2000/svg" id="demonstracao" class="avatar" width="100" height="100" viewBox="0 0 100 100">
-            <rect fill="#000000" width="100%" height="100%"/>
-            <text 
-                fill="#FFFFFF" 
-                font-family="sans-serif" 
-                font-size="25" 
-                font-weight="bold" 
-                x="50%" 
-                y="50%" 
-                text-anchor="middle"
-                dominant-baseline="middle"
-            >
+    <svg xmlns="http://www.w3.org/2000/svg" id="demonstracao" class="avatar" width="250" height="100" viewBox="0 0 250 100">
+        <rect fill="#000000" width="100%" height="100%"></rect>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="30" dy="0" font-weight="bold" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
             Olá mundo!
-            </text> 
-        </svg>
+        </text> 
+    </svg>
 ```
