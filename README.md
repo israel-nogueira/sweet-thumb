@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/ab57c606dcdb2021e7b522aca69d68ca97150168/src/topo_README.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/22af3dce8a1a4d9807f80adecb40d394da73b203/src/topo_README.png"/>
 </p>
 <p align="center">
     <a href="#instalação" target="_Self">Instalação</a> |
