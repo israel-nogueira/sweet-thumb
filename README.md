@@ -452,5 +452,5 @@ Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 ```
 Que visualmente é ficaria assim:
 <p align="center">
-    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/9eac847243714507fe2be59176ef53a621d2e5a5/src/09.png"/>
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/d45bf1c328d2107368c9e2838858c7845a1fe5f8/src/10.png"/>
 </p>
