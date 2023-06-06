@@ -3,13 +3,13 @@
 </p>
 <p align="center">
     <a href="#instalação" target="_Self">Instalação</a> |
-    <a href="#configurando-a-base" target="_Self">Config a base</a> |
-    <a href="#snippets-para-vscode" target="_Self">Snippets</a> |
-    <a href="#criando-models" target="_Self">Models</a> |
-    <a href="#exemplos-de-uso" target="_Self">Exemplos de uso</a><br>
-    <a href="#funções-na-model" target="_Self">Functions</a> |
-    <a href="#criptografia" target="_Self">Crypt</a> |
-    <a href="#stored-procedures" target="_Self">Store Procedures</a> |
+    <a href="#exemplos-de-uso" target="_Self">Exemplos de Uso</a> |
+    <a href="#conversão-de-arquivos" target="_Self">Conversão</a> |
+    <a href="#print-imagem-no-browser" target="_Self">Print no browser</a> |
+    <a href="#thumb-redondo" target="_Self">Thumb Redondo</a><br>
+    <a href="#paleta-de-cores" target="_Self">Paleta de Cores</a> |
+    <a href="#cor-predominante-de-uma-imagem" target="_Self">Cor predominante</a> |
+    <a href="#placeholder" target="_Self">Placeholder</a> |
     <a href="#versionamento" target="_Self">Versionamento</a> 
 </p>
 <p align="center">
@@ -334,7 +334,7 @@ Que visualmente é ficaria assim:
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/>
 </p>
 
-## PLACEHOLDER BLUR DE UMA IMAGEM <br/>
+## PLACEHOLDER BLUR DE UMA IMAGEM<br/>
 
 Aqui criamos uma imagem em BLUR para placeholder em SVG;<br>
 Será criado um arquivo SVG com o sufixo ```-lazy.svg ```
