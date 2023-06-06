@@ -97,3 +97,42 @@ Cropa a imagem no formato que você definir porém sem redimencionar a imagm:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/8af8abdf61d90d31ed4f82bcf2f96c9143cee472/src/04.png"/>
 </p>
+
+## CONVERSÃO DE ARQUIVOS<br/>
+
+Crop simples de uma imagem
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+
+
+    /* 
+    |--------------------------------
+    |  CONVERTE PARA JPG
+    |--------------------------------
+    */
+	sweet::img2jpg(__DIR__.'/avatar.png',100);
+    /* 
+    |--------------------------------
+    |  CONVERTE PARA GIF
+    |--------------------------------
+    */
+	sweet::img2gif(__DIR__.'/avatar.png',9);
+    /* 
+    |--------------------------------
+    |  CONVERTE PARA WEBP
+    |--------------------------------
+    */
+	sweet::img2webp(__DIR__.'/avatar.png',100);
+    /* 
+    |--------------------------------
+    |  CONVERTE PARA PNG
+    |--------------------------------
+    */
+	sweet::img2png(__DIR__.'/avatar.jpg',9);
+
+?>
+```
+
