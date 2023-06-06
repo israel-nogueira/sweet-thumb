@@ -136,3 +136,28 @@ Crop simples de uma imagem
 ?>
 ```
 
+## THUMB REDONDO<br/>
+
+Cropa e retorna uma thumb redonda
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+
+    /* 
+    |-------------------------------------------------------
+    |  CONVERTE PARA GIF
+    |  @PARAM 1: Path da imagem
+    |  @PARAM 2: Tamanho da thumb
+    |  @PARAM 3: Salva um arquivo local ou retorna o objeto
+    |--------------------------------------------------------
+    */
+	sweet::thumbRedondo(__DIR__.'/avatar.jpg', 500,true);
+
+?>
+```
+Este exemplo resultará em:
+<p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/8af8abdf61d90d31ed4f82bcf2f96c9143cee472/src/04.png"/>
+</p>
