@@ -175,3 +175,30 @@ Este exemplo resultará em:
 <p align="center">
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/f26033179b54e7cedf63495a4667b0c24bef2388/src/05.png"/>
 </p>
+```
+
+## LISTANDO PALETA DE CORES<br/>
+
+Nos retorna as cores disponiveis em uma imagem;
+>ATENÇÃO!
+>Essa função percorre cada pixel de uma imagem.
+>Se a imagem for muito grande, pode travar o processamento
+>Portanto, é viável para casos expecíficos ou imagens pequenas
+
+
+```php
+
+<?php
+    include "vendor\autoload.php";
+    use  IsraelNogueira\sweetThumb;
+    
+	sweet::getColor(__DIR__.'/avatar.jpg');
+
+?>
+```
+Este exemplo resultará em:
+```JSON
+
+
+
+```
