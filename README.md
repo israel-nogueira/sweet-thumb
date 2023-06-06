@@ -23,8 +23,7 @@
     <a href="https://packagist.org/packages/israel-nogueira/sweet-thumb"><img src="https://poser.pugx.org/israel-nogueira/sweet-thumb/license.svg"></a>
 </p>
 
-Esta é uma super classe super simples para criação e gerenciamento de thumbnails<br/>
-e mais alguns truques úteis para o desenvolvimento<br/>
+Esta é uma super classe super simples para criação de miniaturas. Sem fru-fru, apenas o que realmente é útil em um sistema/website.<br/>
 
 
 ## Instalação
