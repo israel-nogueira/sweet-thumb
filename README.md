@@ -10,7 +10,10 @@
     <a href="#paleta-de-cores" target="_Self">Paleta de Cores</a> |
     <a href="#cor-predominante-de-uma-imagem" target="_Self">Cor predominante</a> |
     <a href="#placeholder" target="_Self">Placeholder</a> |
-    <a href="#versionamento" target="_Self">Versionamento</a> 
+    <a href="#placeholder-blur-de-uma-imagem" target="_Self">Placeholder com Blur</a>  |
+    <a href="#add-texto-por-cima-de-uma-imagem" target="_Self">Add Textos</a> |
+    <a href="#mesclando-imagens" target="_Self">Mesclando imagens</a> |
+    <a href="#processa-uma-imagem" target="_Self"> uma imagens</a> |
 </p>
 <p align="center">
     <a href="https://packagist.org/packages/israel-nogueira/sweet-thumb">
@@ -360,7 +363,7 @@ Que visualmente é ficaria assim:
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/64a67b00198722fc30c3acd013bc3baffeba5e62/src/07.png"/>
 </p>
 
-## ADD TEXTO POR CIMA DE UMA IMAGEM <br/>
+## ADD TEXTO POR CIMA DE UMA IMAGEM<br/>
 
 Veja como é simples adicionar um texto sob uma imagem;<br>
 
@@ -394,7 +397,7 @@ Que visualmente é ficaria assim:
 </p>
 
 
-## MESCLANDO IMAGENS <br/>
+## MESCLANDO IMAGENS<br/>
 
 Com essa função poderemos mesclar imagens programaticamente;
 ```php
@@ -425,7 +428,7 @@ Que visualmente é ficaria assim:
 </p>
 
 
-## PROCESSA UMA IMAGEM <br/>
+## PROCESSA UMA IMAGEM<br/>
 
 Podemos utilizar essa função para gerar vários formatos de uma só imagem;
 ```php
