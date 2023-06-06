@@ -294,6 +294,24 @@ Nos retorna a cor principal de uma imagem;
             'FONTSIZE'=>30,
             'FONTFAMILY'=>__DIR__.'/fonte.ttf'
         ]);
+    
+    /* 
+    |-------------------------------------------------------
+    |  OU SE QUISER INSERIR EM UMA TAG DE IMAGEM
+    |--------------------------------------------------------
+    */
+    $placeholder = sweet::placeholderBase64([
+            'SIZE'  =>'250x100',
+            'TEXT'  =>'Olá mundo!',
+            'BG'    =>'000000',
+            'COLOR' =>'FFFFFF',
+            'ID'    =>'demonstracao',
+            'CLASS' =>'avatar',
+            'FONTSIZE'=>30,
+            'FONTFAMILY'=>__DIR__.'/fonte.ttf'
+        ]);
+    
+    echo ' <img src="'.$placeholder.'">';
 
 ?>
 ```
@@ -305,9 +323,12 @@ Que nos resultará em:
             Olá mundo!
         </text> 
     </svg>
+
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJkZW1vbnN0cmFjYW8iIGNsYXNzPSJhdmF0YXIiIHdpZHRoPSIyNTAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjUwIDEwMCI+DQoJCQkJCQkJPHJlY3QgZmlsbD0iIzAwMDAwMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPg0KCQkJCQkJCTx0ZXh0IA0KCQkJCQkJCQlmaWxsPSIjRkZGRkZGIiANCgkJCQkJCQkJZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIA0KCQkJCQkJCQlmb250LXNpemU9IjMwIiANCgkJCQkJCQkJZHk9IjAiIA0KCQkJCQkJCQlmb250LXdlaWdodD0iYm9sZCIgDQoJCQkJCQkJCXg9IjUwJSIgDQoJCQkJCQkJCXk9IjUwJSIgDQoJCQkJCQkJCXRleHQtYW5jaG9yPSJtaWRkbGUiDQoJCQkJCQkJCWRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiDQoJCQkJCQkJPg0KCQkJCQkJCQlPbMOhIG11bmRvIQ0KCQkJCQkJCTwvdGV4dD4gDQoJCQkJCQk8L3N2Zz4=">
 ```
 
 Que visualmente é ficaria assim:
 <p align="center">
+    <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/><br>
     <img src="https://github.com/israel-nogueira/sweet-thumb/blob/4c18ac22d4e8f53d21e06f065b41ba0135998c00/src/06.jpg"/>
 </p>
