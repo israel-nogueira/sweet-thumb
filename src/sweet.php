@@ -49,14 +49,13 @@
 			static public function convertImg($imagemPath, $novoFormato, $quality) {
 				// Obtém a extensão da imagem original
 				$extensaoOriginal = pathinfo($imagemPath, PATHINFO_EXTENSION);
+
 				$_EXTS = ['jpg', 'jpeg', 'png', 'gif','webp'];
 				// Verifica se a extensão original é suportada
-				if (!in_array(strtolower($extensaoOriginal),$_EXTS)) {
-					return false;
-				}
-
-				// Verifica se o novo formato é suportado
-				if (!in_array(strtolower($novoFormato),$_EXTS)) {
+				if (
+					!in_array(strtolower($extensaoOriginal),$_EXTS)|| 
+					!in_array(strtolower($novoFormato),$_EXTS)
+				) {
 					return false;
 				}
 
@@ -75,6 +74,8 @@
 				// Salva a nova imagem no formato desejado
 				switch (strtolower($novoFormato)) {
 					case 'jpg':
+						imagejpeg($novaImagem, $novoCaminho, $quality);
+						break;
 					case 'jpeg':
 						imagejpeg($novaImagem, $novoCaminho, $quality);
 						break;
@@ -90,11 +91,8 @@
 					default:
 						return false;
 				}
-
-				// Libera a memória
 				imagedestroy($imagemOriginal);
 				imagedestroy($novaImagem);
-
 				return true;
 			}
 
@@ -186,38 +184,38 @@
 		|-----------------------------------------------------
 		*/
 
-	static public function printBrowser($imagem) {
-		if (is_string($imagem) && file_exists($imagem)) {
-			$extensao = pathinfo($imagem, PATHINFO_EXTENSION);
-			$tipoMime = '';
+		static public function printBrowser($imagem) {
+			if (is_string($imagem) && file_exists($imagem)) {
+				$extensao = pathinfo($imagem, PATHINFO_EXTENSION);
+				$tipoMime = '';
 
-			if (in_array(strtolower($extensao), ['jpg', 'jpeg'])) {
-				$tipoMime = 'image/jpeg';
-			} elseif (strtolower($extensao) === 'png') {
-				$tipoMime = 'image/png';
-			} elseif (strtolower($extensao) === 'gif') {
-				$tipoMime = 'image/gif';
-			} elseif (strtolower($extensao) === 'webp') {
-				$tipoMime = 'image/webp';
-			} else {
-				echo 'Extensão de arquivo inválida.';
-				return;
-			}
+				if (in_array(strtolower($extensao), ['jpg', 'jpeg'])) {
+					$tipoMime = 'image/jpeg';
+				} elseif (strtolower($extensao) === 'png') {
+					$tipoMime = 'image/png';
+				} elseif (strtolower($extensao) === 'gif') {
+					$tipoMime = 'image/gif';
+				} elseif (strtolower($extensao) === 'webp') {
+					$tipoMime = 'image/webp';
+				} else {
+					echo 'Extensão de arquivo inválida.';
+					return;
+				}
 
-			ob_clean();
-			header("Content-Type: $tipoMime");
-			readfile($imagem);
-		} else {
-			if (is_resource($imagem) && get_resource_type($imagem) === 'gd') {
 				ob_clean();
-				header('Content-Type: image/png');
-				imagepng($imagem);
-				imagedestroy($imagem);
+				header("Content-Type: $tipoMime");
+				readfile($imagem);
 			} else {
-				echo 'Imagem inválida.';
+				if (is_resource($imagem) && get_resource_type($imagem) === 'gd') {
+					ob_clean();
+					header('Content-Type: image/png');
+					imagepng($imagem);
+					imagedestroy($imagem);
+				} else {
+					echo 'Imagem inválida.';
+				}
 			}
 		}
-	}
 
 
 
@@ -277,13 +275,24 @@
 		|	RETORNA QUALIDADE MÁXIMA DE UMA IMAGEM  
 		|-----------------------------------------------------
 		*/
-			static public function getQuality($image){
-				switch (getimagesize($image)['mime']) {
-					case 'image/jpg':	return 100;	break;
-					case 'image/jpeg':	return 100;	break;
-					case 'image/png':	return 9;	break;
-					case 'image/gif':	return 100;	break;
-					default:			return 100;	break;
+			static public function getQuality($image,$mime=true){
+
+				if($mime==true){
+					switch (getimagesize($image)['mime']) {
+						case 'image/jpg':	return 100;	break;
+						case 'image/jpeg':	return 100;	break;
+						case 'image/png':	return 9;	break;
+						case 'image/gif':	return 100;	break;
+						default:		return 100;	break;
+					}
+				}else{
+					switch (pathinfo($image, PATHINFO_EXTENSION)) {
+						case 'jpg':		return 100;	break;
+						case 'jpeg':	return 100;	break;
+						case 'png':		return 9;	break;
+						case 'gif':		return 100;	break;
+						default:		return 100;	break;
+					}
 				}
 			}
 
@@ -673,45 +682,47 @@
 
 				if(is_array($_ARQUIVO) && count($_ARQUIVO)>1){
 					$_FULLPATH      =	$_ARQUIVO[0];
-					$_HASH			=	$_ARQUIVO[1];		
+					$_HASH			=	pathinfo($_ARQUIVO[1], PATHINFO_FILENAME);	
+					$_EXTENSION		=	pathinfo($_ARQUIVO[1], PATHINFO_EXTENSION);
 				}else{
-					$_HASH			=	substr(bin2hex(random_bytes(500)),0,32);
 					$_FULLPATH      =	$_ARQUIVO;
+					$_HASH			=	substr(bin2hex(random_bytes(500)),0,32);
+					$_EXTENSION		=	pathinfo($_ARQUIVO, PATHINFO_EXTENSION);
 				}
 
 				if(file_exists($_FULLPATH)){
 					//------------------------------------------------------------------
 						$_RETURN 			=	[];
-						$_EXTENSION			=	str_replace('jpeg','jpg',explode('/',mime_content_type($_FULLPATH))[1]);
-						$NEW_PATH         	=	dirname($_FULLPATH);
+						$PATH_DESTINO       =	dirname($_FULLPATH);
 
 					//------------------------------------------------------------------
 					//	TRANSFORMA EM PNG CASO SEJA JPG
 					//------------------------------------------------------------------
-						if($_EXTENSION!='png'){
-							self::img2png($_FULLPATH,9);
-							$_EXTENSION = 'png';
-						}
+						// if($_EXTENSION!='png'){
+						// 	self::img2png($_FULLPATH,9);
+						// 	$_EXTENSION = 'png';
+						// }
 						$_FILENAME			=	$_HASH.'.'.$_EXTENSION;
 						
 					//------------------------------------------------------------------
 					//	COPIAMOS E RENOMEAMOS
 					//------------------------------------------------------------------
-						copy($_FULLPATH,$NEW_PATH.'/original.'.$_EXTENSION);
-						rename($_FULLPATH,$NEW_PATH.'/'.$_FILENAME);
+						copy($_FULLPATH,$PATH_DESTINO.'/original.'.$_EXTENSION);
+						rename($_FULLPATH,$PATH_DESTINO.'/'.$_FILENAME);
 					
-						$_FULLPATH = $NEW_PATH.'/'.$_FILENAME;
+						$_FULLPATH = $PATH_DESTINO.'/'.$_FILENAME;
 
 
 					//------------------------------------------------------------------
 					//	REDIMENCIONA O ORIGINAL PARA O TAMANHO MÁXIMO
 					//------------------------------------------------------------------
-						@mkdir($NEW_PATH,775,true);
+						@mkdir($PATH_DESTINO,775,true);
 						sweet::crop($_FULLPATH,[$_ROOT_SIZE,0],false,true,false);
+
 					//------------------------------------------------------------------
 					//	CRIAMOS O SVG DE PREVIEW
 					//------------------------------------------------------------------
-						sweet::createLazyLoad($NEW_PATH.'/'.$_FILENAME);
+						sweet::createLazyLoad($PATH_DESTINO.'/'.$_FILENAME);
 						$_RETURN['ORIGINAL']	=	$_FILENAME;
 						$_RETURN['SIZES']		=	[];
 						$_RETURN['LAZYLOW']		=	explode('.',$_FILENAME)[0].'-lazy.low.svg';
@@ -721,21 +732,25 @@
 					//	DERIVAMOS OS TAMAHOS DA IMAGEM
 					//------------------------------------------------------------------
 						foreach ($_SIZES as $value) {
-							if(is_array($value) && count($value)>2 && is_numeric($value[2])){
+
+							if(
+								is_array($value) && 
+								count($value)>2 && 
+								is_numeric($value[2])
+							){
 								$_QUAL = $value[2];
 							}else{
 								$_QUAL = self::getQuality($_FULLPATH);
 							}
 
-							if(is_numeric($value)){$SIZES = [intVal($value),intVal($value),$_QUAL];}
+							if(is_numeric($value))					{$SIZES = [intVal($value),intVal($value),$_QUAL];}
 							if(is_array($value) && count($value)==1){$SIZES = [intVal($value[0]),intVal($value[0]),$_QUAL];}
 							if(is_array($value) && count($value)>=2){$SIZES = [intVal($value[0]),intVal($value[1]),$_QUAL];}
 
-							$_NAMESIZE			= (is_array($value)) ? implode('x',$value):$value.'x0x'.$_QUAL;
-
+							$_NAMESIZE			= (is_array($value)) ? implode('x',$value).'x'.$_QUAL	:	$value.'x0x'.$_QUAL;
 
 							$_RETURN['SIZES'][] = $_HASH.'-'.$_NAMESIZE.'.'.$_EXTENSION;
-							sweet::crop($NEW_PATH.'/'.$_FILENAME,$SIZES,true,true,true);
+							sweet::crop($PATH_DESTINO.'/'.$_FILENAME,$SIZES,true,true,true);
 						}
 					return $_RETURN;
 				}else{
